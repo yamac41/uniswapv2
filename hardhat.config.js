@@ -42,6 +42,11 @@ module.exports = {
       accounts: [SPRIVATE_KEY]
     }
   },
+  etherscan: {
+    apiKey: {
+      sepolia: process.env.ETHERSCAN_API_KEY,
+    }
+  },
   solidity: {
     compilers: [
       {

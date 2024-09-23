@@ -27,7 +27,7 @@ async function main() {
   const UniswapV2Router02  = await hre.ethers.getContractFactory("UniswapV2Router02");
   const UniswapV2Router02_deployed = await UniswapV2Router02.deploy(factoryAddress, WETHAddress);
   const router02 = await UniswapV2Router02_deployed.deployed();
-  console.log("UniswapV2Router02 deployed to:",router02);
+  console.log("UniswapV2Router02 deployed to:",router02.address);
 
   // const v4NFT_deploy = await hre.ethers.getContractFactory("BuyContract");
   // const v4NFT_deployed = await v4NFT_deploy.deploy();
