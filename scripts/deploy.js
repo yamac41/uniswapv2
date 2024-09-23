@@ -18,18 +18,21 @@ async function main() {
   // const WETH9_deployed = await WETH9_deploy.deploy();
   // const WETH9 = await WETH9_deployed.deployed();
 
+  const factoryAddress = "0x7E0987E5b3a30e3f2828572Bb659A548460a3003";
+  const WETHAddress = "0x7b79995e5f793a07bc00c21412e50ecae098e7f9";
+
   const account = await hre.ethers.getSigner();
   console.log(account.address);
 
-  const v4token_deploy = await hre.ethers.getContractFactory("Detector");
-  const v4token_deployed = await v4token_deploy.deploy();
-  const v4token = await v4token_deployed.deployed();
-  console.log("Detector deployed to:",v4token.address);
+  const UniswapV2Router02  = await hre.ethers.getContractFactory("UniswapV2Router02");
+  const UniswapV2Router02_deployed = await UniswapV2Router02.deploy(factoryAddress, WETHAddress);
+  const router02 = await UniswapV2Router02_deployed.deployed();
+  console.log("UniswapV2Router02 deployed to:",router02);
 
-  const v4NFT_deploy = await hre.ethers.getContractFactory("BuyContract");
-  const v4NFT_deployed = await v4NFT_deploy.deploy();
-  const v4NFT = await v4NFT_deployed.deployed();
-  console.log("BuyContract deployed to:",v4NFT.address);
+  // const v4NFT_deploy = await hre.ethers.getContractFactory("BuyContract");
+  // const v4NFT_deployed = await v4NFT_deploy.deploy();
+  // const v4NFT = await v4NFT_deployed.deployed();
+  // console.log("BuyContract deployed to:",v4NFT.address);
 
   // const FullMigration_deploy = await hre.ethers.getContractFactory("FullMigration");
   // const FullMigration_deployed = await FullMigration_deploy.deploy(account.address);

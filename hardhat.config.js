@@ -15,7 +15,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 const ALCHEMY_API_KEY = 'J4_geREd4aVmr25leQPn76QSpT9z3E0S';
 
-const SPRIVATE_KEY = '9b678ffe39c0a736e7a2f66784e1398a1edc7c507a27ce241195b0b81a97036c';
+const SPRIVATE_KEY = process.env.SP;
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
@@ -33,6 +33,10 @@ module.exports = {
         url: process.env.RPC_URL,
       },
     }, 
+    sepolia: {
+      url: process.env.RPC_URL,
+      accounts: [SPRIVATE_KEY]
+    },
     mainnet: {
       url: 'https://eth-mainnet.g.alchemy.com/v2/hiJuTRS5UlImeBSiA_gOvm7skQzFrZFB',
       accounts: [SPRIVATE_KEY]
