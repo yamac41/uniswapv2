@@ -13,8 +13,6 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const ALCHEMY_API_KEY = 'J4_geREd4aVmr25leQPn76QSpT9z3E0S';
-
 const SPRIVATE_KEY = process.env.SP;
 
 // You need to export an object to set up your config
